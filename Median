@@ -21,7 +21,7 @@ if (averageUsers > expectedUsers) {
   console.log('Посещаемость так себе. Нужно поднапрячься!');
 }
 
-
+// Сортируем массив
 for (var i = 0; i <= usersByDay.length - 2; i++) {
   var minValue = usersByDay[i];
 
@@ -35,7 +35,7 @@ for (var i = 0; i <= usersByDay.length - 2; i++) {
   }
 }
 
-
+// Рассчитываем медиану
 if (usersByDay.length % 2 !== 0) {
   var medianIndex = (usersByDay.length - 1) / 2;
   var median = usersByDay[medianIndex];
@@ -45,4 +45,11 @@ if (usersByDay.length % 2 !== 0) {
   var median = (usersByDay[leftIndex] + usersByDay[rightIndex]) / 2;
 }
 
-console.log ('Медианная посещаемость: ' + median);
+console.log('Медианная посещаемость: ' + median);
+
+if (median / averageUsers < 0.9) {
+  console.log ('Есть подозрения в подтасовках!');
+}
+else {
+    console.log ('Подозрений в подтасовках нет!');
+}
