@@ -1,0 +1,19 @@
+var qualificationDistance = 200;
+var attempts = [120, 150, 160, 201, 203, 180, 202];
+var qualified = false;
+var averageBest = 0;
+
+for (var i=0; i<attempts.length; i++) {
+ var maxattempts=attempts[i];
+ for (var j=i+1; j<attempts.length; j++) {
+   if (attempts[j]>maxattempts) {
+      maxattempts = attempts[j];
+      var swap = attempts[i];
+      attempts[i] = maxattempts;
+      attempts[j] = swap;
+   }
+ }
+}
+console.log (attempts);
+averageBest = (attempts[0]+attempts[1]+attempts[2])/3;
+qualified = averageBest > qualificationDistance;
