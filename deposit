@@ -1,0 +1,13 @@
+var calculateDeposit = function (initialDeposit, percent, months, capitalization) {
+  var result=initialDeposit;
+  for (var i=1; i<=months; i++) {
+    if (capitalization) {
+      result += result*percent/100/12; 
+    }
+    else {
+      result=result+initialDeposit*percent/100/12;
+    }
+  }
+
+  return Math.round(result);
+};
